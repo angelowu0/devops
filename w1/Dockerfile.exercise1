@@ -1,0 +1,5 @@
+FROM ubuntu:24.04
+WORKDIR /project
+
+# docker build -t lab01
+# docker run -it lab01
