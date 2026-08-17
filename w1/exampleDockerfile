@@ -1,0 +1,9 @@
+# Always use version
+FROM python:3.14-alpine3.24
+WORKDIR /app
+COPY . .
+# EXPOSE 5000
+CMD [ "python3", "app.py" ]
+
+# docker build -t demo-web .
+# docker run -d -p 5000:5000 --name demo2 demo-web
