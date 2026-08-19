@@ -2,8 +2,7 @@ name: test-workflow
 on:
   push:
     branches:
-      branches:
-        - 'feature/*'
+      - 'feature/*'
   pull_request:
     branches:
       - 'main'
