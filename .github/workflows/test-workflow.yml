@@ -1,0 +1,27 @@
+name: test-workflow
+on:
+  push:
+    branches:
+      - 'feature/*'
+  pull_request:
+    branches:
+      - 'main'
+jobs:
+# build step
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run build Process
+        run: make -C w2 build
+# deploy
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/heads/feature/')
+    steps:
+      - uses: action/checkout@v4
+      - name: Run deploy process
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+        run: make -C w2 deploy
