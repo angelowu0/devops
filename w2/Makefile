@@ -2,3 +2,6 @@
 
 build:
 	docker build .
+
+deploy:
+	echo "Deploying ..."
